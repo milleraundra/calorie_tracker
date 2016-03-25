@@ -9,11 +9,11 @@ import { Food } from './food.model';
 export class HealthyFoodPipe implements PipeTransform {
   transform(input: Food[], args) {
     var healthFilter = args[0];
-    if (healthFilter === "Healthy") {
+    if (healthFilter === "healthy") {
       return input.filter(function(food) {
         return (food.calories <= 299);
       })
-    } else if (healthFilter === "Unhealthy") {
+    } else if (healthFilter === "unhealthy") {
       return input.filter(function(food) {
         return (food.calories >= 300);
       })
