@@ -2,14 +2,15 @@ import { Component } from 'angular2/core';
 import { SignInComponent } from './sign-in.component';
 import { TrackerHomeComponent } from './tracker-home.component';
 import { Food } from './food.model';
+import { PageHeaderComponent } from './page-header.component';
 
 @Component({
   selector: 'my-app',
-  directives: [SignInComponent, TrackerHomeComponent],
+  directives: [SignInComponent, TrackerHomeComponent, PageHeaderComponent],
   template: `
     <div class="container">
       <div class="page-header">
-        <h1>Calorie Tracker</h1>
+        <page-header [user]="currentUser"></page-header>
       </div>
       <sign-in
         *ngIf="!userExists"
@@ -17,7 +18,6 @@ import { Food } from './food.model';
       </sign-in>
       <tracker-home
         *ngIf="userExists"
-        [user]="currentUser"
         [calorieCap]="calorieGoal"
         [foods]="foods">
       </tracker-home>
@@ -33,6 +33,8 @@ export class AppComponent {
   public foods: Food[];
   construct() {
     this.userExists = false;
+    this.currentUser = undefined;
+    this.calorieGoal = undefined;
   }
 
   runSignIn(userInfo: any[]): void {

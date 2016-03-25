@@ -5,7 +5,7 @@ import { Food } from './food.model';
 
 @Component ({
   selector: 'tracker-home',
-  inputs: ['user', 'calorieCap', 'foods'],
+  inputs: ['calorieCap', 'foods'],
   directives: [FoodDisplayComponent, FoodDetailsComponent],
   template: `
     <div class="row">
@@ -18,10 +18,7 @@ import { Food } from './food.model';
         </food-display>
       </div>
 
-      <div class="col-sm-4 col-sm-offset-2">
-        <h3>{{ user}}</h3>
-        <h4>{{ calorieCap }}</h4>
-
+      <div class="col-sm-4">
         <food-details
           *ngIf="selectedFood"
           [food]="selectedFood">

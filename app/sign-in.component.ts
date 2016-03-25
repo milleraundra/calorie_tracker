@@ -4,7 +4,6 @@ import { Component, EventEmitter } from 'angular2/core';
   selector: 'sign-in',
   outputs: ['userSignIn'],
   template: `
-    <h1>Sign Up</h1>
     <h2>Welcome! Please enter your name and *daily calorie goal.</h2>
     <p>*Your daily calorie goal is the total number of calories you wish to consume in a day. Whether you're trying to lose, gain, or maintain your weight, this number will help keep you on track. Good luck!</p>
     <input type="text" placeholder="Your Name" #userName>
