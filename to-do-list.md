@@ -4,10 +4,10 @@ General:
 [ ] Edit new-food form
     [ ] Add close button to new-food form
     [ ] Space in form elements
-[ ] Details View
+[x] Details View
     [x] Add Edit field
     [x] Add close button
 
 Pipes:
-[ ] Create pipe to filter for meals
-[ ] Create pipe to filter for healthy and unhealthy
+[x] Create pipe to filter for meals
+[x] Create pipe to filter for healthy and unhealthy

@@ -15,16 +15,18 @@ export class MealPipe implements PipeTransform {
       })
     } else if (healthFilter === "lunch") {
       return input.filter(function(food) {
-        return (food.calories === "lunch");
+        return (food.meal === "lunch");
       })
     } else if (healthFilter === "dinner") {
       return input.filter(function(food) {
-        return (food.calories === "dinner");
+        return (food.meal === "dinner");
       })
     } else if (healthFilter === "snacks") {
       return input.filter(function(food) {
-        return (food.calories === "snacks");
+        return (food.meal === "snack");
       })
+    } else {
+      return input;
     }
 
   }

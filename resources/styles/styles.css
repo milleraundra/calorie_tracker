@@ -6,6 +6,10 @@
   margin-top: 15px;
 }
 
+.display-section {
+  padding-top:30px;
+}
+
 .close {
   float: right;
   padding: 2px;

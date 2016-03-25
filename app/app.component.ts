@@ -41,9 +41,9 @@ export class AppComponent {
     this.currentUser = userInfo[0];
     this.calorieGoal = userInfo[1];
     this.foods = [
-      new Food("Salad", "Lunch", 290, 0),
-      new Food("Hamburger", "Dinner", 380, 1),
-      new Food("Granola & Yogurt", "Snack", 180, 2)
+      new Food("Salad", "lunch", 290, 0),
+      new Food("Hamburger", "dinner", 380, 1),
+      new Food("Granola & Yogurt", "snack", 180, 2)
     ]
     this.userExists = true;
   }

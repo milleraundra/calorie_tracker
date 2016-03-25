@@ -8,10 +8,10 @@ import { Component, EventEmitter } from 'angular2/core';
       <input type="text" placeholder="Food" #food>
       <input type="number" placeholder="Calories Consumed" #calories>
       <select #meal>
-        <option value="Breakfast">Breakfast</option>
-        <option value="Lunch">Lunch</option>
-        <option value="Dinner">Dinner</option>
-        <option value="Snack">Snack</option>
+        <option value="breakfast">Breakfast</option>
+        <option value="lunch">Lunch</option>
+        <option value="dinner">Dinner</option>
+        <option value="snack">Snack</option>
       </select>
       <button (click)="addFood(food, meal, calories)">Add Food</button>
     </div>

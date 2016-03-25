@@ -4,12 +4,13 @@ import { FoodDetailsComponent } from './food-details.component';
 import { Food } from './food.model';
 import { AddFoodComponent } from './add-food.component';
 import { HealthyFoodPipe } from './food.pipe';
+import { MealPipe } from './meal.pipe';
 
 @Component ({
   selector: 'tracker-home',
   inputs: ['calorieCap', 'foods'],
   directives: [FoodDisplayComponent, FoodDetailsComponent, AddFoodComponent],
-  pipes: [HealthyFoodPipe],
+  pipes: [HealthyFoodPipe, MealPipe],
   template: `
     <div class="row">
       <div class="col-sm-6">
@@ -18,8 +19,34 @@ import { HealthyFoodPipe } from './food.pipe';
           <option value="unhealthy">Unhealthy</option>
           <option value="no-filter" selected="selected">No Filter</option>
         </select>
+
+        <h3 class="display-section">Breakfast:</h3>
         <food-display
-        *ngFor="#food of foods | healthy:healthFilter"
+        *ngFor="#food of foods | meal:'breakfast' | healthy:healthFilter"
+        [singleFood]="food"
+        (foodToView)="viewSelectedFood($event)"
+        >
+        </food-display>
+
+        <h3 class="display-section">Lunch:</h3>
+        <food-display
+        *ngFor="#food of foods | meal:'lunch' | healthy:healthFilter"
+        [singleFood]="food"
+        (foodToView)="viewSelectedFood($event)"
+        >
+        </food-display>
+
+        <h3 class="display-section">Dinner:</h3>
+        <food-display
+        *ngFor="#food of foods | meal:'dinner' | healthy:healthFilter"
+        [singleFood]="food"
+        (foodToView)="viewSelectedFood($event)"
+        >
+        </food-display>
+
+        <h3 class="display-section">Snacks:</h3>
+        <food-display
+        *ngFor="#food of foods | meal:'snacks' | healthy:healthFilter"
         [singleFood]="food"
         (foodToView)="viewSelectedFood($event)"
         >

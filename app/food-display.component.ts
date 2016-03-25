@@ -6,7 +6,7 @@ import { Food } from './food.model';
   inputs: ['singleFood'],
   outputs: ['foodToView'],
   template: `
-    <h3 (click)="viewFood(singleFood)">{{ singleFood.name}}</h3>
+    <h4 (click)="viewFood(singleFood)">{{ singleFood.name}}</h4>
   `
 })
 
