@@ -13,7 +13,7 @@ import { Component, EventEmitter } from 'angular2/core';
         <option value="Dinner">Dinner</option>
         <option value="Snack">Snack</option>
       </select>
-      <button (click)="addFood(food, calories, meal)">Add Food</button>
+      <button (click)="addFood(food, meal, calories)">Add Food</button>
     </div>
   `
 })
@@ -26,7 +26,10 @@ export class AddFoodComponent {
   }
 
   addFood(food: HTMLInputElement, meal: HTMLSelectElement, calories: HTMLInputElement): void {
-    this.newFoodItem.emit([food.value, calories.value, meal.value])
+    this.newFoodItem.emit([food.value, meal.value, calories.value]);
+    food.value = "";
+    meal.value = "Breakfast";
+    calories.value = "";
   }
 
 }
