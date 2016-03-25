@@ -31,7 +31,7 @@ export class AppComponent {
   public currentUser: string;
   public calorieGoal: number;
   public foods: Food[];
-  construct() {
+  constructor() {
     this.userExists = false;
     this.currentUser = undefined;
     this.calorieGoal = undefined;
@@ -41,8 +41,9 @@ export class AppComponent {
     this.currentUser = userInfo[0];
     this.calorieGoal = userInfo[1];
     this.foods = [
-      new Food("Hamburger", "Lunch", 400, 0),
-      new Food("Ice Cream", "Lunch", 280, 1)
+      new Food("Salad", "Lunch", 290, 0),
+      new Food("Hamburger", "Dinner", 380, 1),
+      new Food("Granola & Yogurt", "Snack", 180, 2)
     ]
     this.userExists = true;
   }

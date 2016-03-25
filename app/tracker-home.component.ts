@@ -41,6 +41,7 @@ import { AddFoodComponent } from './add-food.component';
 })
 
 export class TrackerHomeComponent {
+  //var foods not setting to input value foods
   public foods: Food[];
   public selectedFood: Food;
   public showAddFoodField: boolean;
@@ -65,6 +66,7 @@ export class TrackerHomeComponent {
   }
 
 
+//  <p *ngIf="foods === []">No meals logged for today.</p>
 
 
 
