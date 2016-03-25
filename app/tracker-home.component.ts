@@ -2,18 +2,20 @@ import { Component } from 'angular2/core';
 import { FoodDisplayComponent } from './food-display.component';
 import { FoodDetailsComponent } from './food-details.component';
 import { Food } from './food.model';
+import { CalorieCountComponent } from './calorie-count.component';
 import { AddFoodComponent } from './add-food.component';
 import { HealthyFoodPipe } from './food.pipe';
 import { MealPipe } from './meal.pipe';
 
 @Component ({
   selector: 'tracker-home',
-  inputs: ['calorieCap', 'foods'],
-  directives: [FoodDisplayComponent, FoodDetailsComponent, AddFoodComponent],
+  inputs: ['calorieCap', 'foods', 'user'],
+  directives: [FoodDisplayComponent, FoodDetailsComponent, AddFoodComponent, CalorieCountComponent],
   pipes: [HealthyFoodPipe, MealPipe],
   template: `
     <div class="row">
       <div class="col-sm-6">
+        <label>Filter:</label>
         <select (change)="changeHealthFilter($event.target.value)">
           <option value="healthy">Healthy</option>
           <option value="unhealthy">Unhealthy</option>
@@ -54,6 +56,8 @@ import { MealPipe } from './meal.pipe';
       </div>
 
       <div class="col-sm-4">
+        <calorie-count></calorie-count>
+
         <button class="btn btn-lg btn-danger btn-block"
           (click)="toggleAddFoodField()"
           >
@@ -89,7 +93,6 @@ export class TrackerHomeComponent {
 
   viewSelectedFood(clickedFood: Food) {
     this.selectedFood = clickedFood;
-    console.log(this.selectedFood);
   }
 
   clearSelectedFood() {
@@ -98,7 +101,6 @@ export class TrackerHomeComponent {
 
   toggleAddFoodField() {
     this.showAddFoodField = !this.showAddFoodField;
-    console.log(this.showAddFoodField);
   }
 
   addNewFood(newFoodArray: any[]) {
@@ -107,7 +109,6 @@ export class TrackerHomeComponent {
 
   changeHealthFilter(newHealthFilter) {
     this.healthFilter = newHealthFilter;
-    console.log(this.healthFilter);
   }
 
 

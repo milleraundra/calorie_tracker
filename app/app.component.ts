@@ -10,7 +10,7 @@ import { PageHeaderComponent } from './page-header.component';
   template: `
     <div class="container">
       <div class="page-header">
-        <page-header [user]="currentUser"></page-header>
+        <h1>Calorie Tracker</h1>
       </div>
       <sign-in
         *ngIf="!userExists"
@@ -19,7 +19,8 @@ import { PageHeaderComponent } from './page-header.component';
       <tracker-home
         *ngIf="userExists"
         [calorieCap]="calorieGoal"
-        [foods]="foods">
+        [foods]="foods"
+        [user]="currentUser">
       </tracker-home>
 
     </div>
@@ -47,5 +48,8 @@ export class AppComponent {
     ]
     this.userExists = true;
   }
-
+  //
+  // <div class="page-header">
+  //   <page-header [user]="currentUser"></page-header>
+  // </div>
 }
