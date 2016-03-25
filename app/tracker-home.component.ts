@@ -19,6 +19,10 @@ import { Food } from './food.model';
       </div>
 
       <div class="col-sm-4">
+        <button class="btn btn-lg btn-danger btn-block"
+          (click)="toggleAddFoodField()"
+          >
+          Add Food</button>
         <food-details
           *ngIf="selectedFood"
           [food]="selectedFood">
@@ -32,14 +36,21 @@ import { Food } from './food.model';
 export class TrackerHomeComponent {
   public foods: Food[];
   public selectedFood: Food;
+  public showAddFoodField: boolean;
 
   constructor() {
     this.selectedFood = undefined;
+    this.showAddFoodField = false;
   }
 
   viewSelectedFood(clickedFood: Food) {
     this.selectedFood = clickedFood;
     console.log(this.selectedFood);
+  }
+
+  toggleAddFoodField() {
+    this.showAddFoodField = !this.showAddFoodField;
+    console.log(this.showAddFoodField);
   }
 
 
