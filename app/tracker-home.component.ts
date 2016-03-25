@@ -2,11 +2,12 @@ import { Component } from 'angular2/core';
 import { FoodDisplayComponent } from './food-display.component';
 import { FoodDetailsComponent } from './food-details.component';
 import { Food } from './food.model';
+import { AddFoodComponent } from './add-food.component';
 
 @Component ({
   selector: 'tracker-home',
   inputs: ['calorieCap', 'foods'],
-  directives: [FoodDisplayComponent, FoodDetailsComponent],
+  directives: [FoodDisplayComponent, FoodDetailsComponent, AddFoodComponent],
   template: `
     <div class="row">
       <div class="col-sm-6">
@@ -23,6 +24,7 @@ import { Food } from './food.model';
           (click)="toggleAddFoodField()"
           >
           Add Food</button>
+          <new-food *ngIf="showAddFoodField" class="panel"></new-food>
         <food-details
           *ngIf="selectedFood"
           [food]="selectedFood">
