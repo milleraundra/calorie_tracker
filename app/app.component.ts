@@ -1,6 +1,7 @@
 import { Component } from 'angular2/core';
 import { SignInComponent } from './sign-in.component';
 import { TrackerHomeComponent } from './tracker-home.component';
+import { Food } from './food.model';
 
 @Component({
   selector: 'my-app',
@@ -17,7 +18,8 @@ import { TrackerHomeComponent } from './tracker-home.component';
       <tracker-home
         *ngIf="userExists"
         [user]="currentUser"
-        [calorieCap]="calorieGoal">
+        [calorieCap]="calorieGoal"
+        [foods]="foods">
       </tracker-home>
 
     </div>
@@ -25,9 +27,10 @@ import { TrackerHomeComponent } from './tracker-home.component';
 })
 
 export class AppComponent {
-  userExists: boolean;
-  currentUser: string;
-  calorieGoal: number;
+  public userExists: boolean;
+  public currentUser: string;
+  public calorieGoal: number;
+  public foods: Food[];
   construct() {
     this.userExists = false;
   }
@@ -35,6 +38,10 @@ export class AppComponent {
   runSignIn(userInfo: any[]): void {
     this.currentUser = userInfo[0];
     this.calorieGoal = userInfo[1];
+    this.foods = [
+      new Food("Hamburger", "Lunch", 400, 0),
+      new Food("Ice Cream", "Lunch", 280, 1)
+    ]
     this.userExists = true;
   }
 

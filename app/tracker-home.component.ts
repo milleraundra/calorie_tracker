@@ -4,12 +4,17 @@ import { Food } from './food.model';
 
 @Component ({
   selector: 'tracker-home',
-  inputs: ['user', 'calorieCap'],
+  inputs: ['user', 'calorieCap', 'foods'],
   directives: [FoodDisplayComponent],
   template: `
     <div class="row">
       <div class="col-sm-6">
-        <food-display></food-display>
+        <food-display
+        *ngFor="#food of foods"
+        [singleFood]="food"
+        (foodToView)="viewSelectedFood($event)"
+        >
+        </food-display>
       </div>
 
       <div class="col-sm-4 col-sm-offset-2">
@@ -23,10 +28,13 @@ import { Food } from './food.model';
 
 export class TrackerHomeComponent {
   public foods: Food[];
-  construct() {
-    this.foods = [];
-  }
+  public selectedFood: Food;
 
+
+  viewSelectedFood(clickedFood: Food) {
+    this.selectedFood = clickedFood;
+    console.log(this.selectedFood);
+  }
 
 
 
