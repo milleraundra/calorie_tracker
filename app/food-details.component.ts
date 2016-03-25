@@ -5,8 +5,8 @@ import { Component, EventEmitter } from 'angular2/core';
   inputs: ['food'],
   template: `
     <h3>{{ food.name }}</h3>
-    <p>{{ food.meal }}</p>
-    <p>{{ food.calories }}</p>
+    <p>Meal: {{ food.meal }}</p>
+    <p>Calories: {{ food.calories }}</p>
   `
 })
 

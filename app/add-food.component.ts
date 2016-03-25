@@ -1,22 +1,32 @@
-import { Component } from 'angular2/core';
+import { Component, EventEmitter } from 'angular2/core';
 
 @Component({
   selector: 'new-food',
+  outputs: ['newFoodItem'],
   template: `
     <div class="form-group">
-      <input type="text" placeholder="Food">
-      <input type="number" placeholder="Calories Consumed">
-      <select>
+      <input type="text" placeholder="Food" #food>
+      <input type="number" placeholder="Calories Consumed" #calories>
+      <select #meal>
         <option value="Breakfast">Breakfast</option>
         <option value="Lunch">Lunch</option>
         <option value="Dinner">Dinner</option>
         <option value="Snack">Snack</option>
       </select>
-      <button>Add Food</button>
+      <button (click)="addFood(food, calories, meal)">Add Food</button>
     </div>
   `
 })
 
 export class AddFoodComponent {
+  public newFoodItem: EventEmitter<any>;
+
+  constructor() {
+    this.newFoodItem = new EventEmitter();
+  }
+
+  addFood(food: HTMLInputElement, meal: HTMLSelectElement, calories: HTMLInputElement): void {
+    this.newFoodItem.emit([food.value, calories.value, meal.value])
+  }
 
 }

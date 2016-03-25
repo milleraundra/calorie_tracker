@@ -24,7 +24,12 @@ import { AddFoodComponent } from './add-food.component';
           (click)="toggleAddFoodField()"
           >
           Add Food</button>
-          <new-food *ngIf="showAddFoodField" class="panel"></new-food>
+          <new-food
+            *ngIf="showAddFoodField"
+            class="panel"
+            (newFoodItem)="addNewFood($event)"
+            >
+            </new-food>
         <food-details
           *ngIf="selectedFood"
           [food]="selectedFood">
@@ -53,6 +58,10 @@ export class TrackerHomeComponent {
   toggleAddFoodField() {
     this.showAddFoodField = !this.showAddFoodField;
     console.log(this.showAddFoodField);
+  }
+
+  addNewFood(newFoodArray: any[]) {
+    this.foods.push(new Food(newFoodArray[0], newFoodArray[1], newFoodArray[2], this.foods.length));
   }
 
 
