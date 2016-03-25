@@ -1,3 +1,12 @@
 .user-info {
   padding-top: 30px;
 }
+
+.edit-field {
+  margin-top: 15px;
+}
+
+.close {
+  float: right;
+  padding: 2px;
+}

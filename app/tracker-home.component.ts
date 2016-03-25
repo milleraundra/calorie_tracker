@@ -31,6 +31,7 @@ import { AddFoodComponent } from './add-food.component';
             >
             </new-food>
         <food-details
+          (closeDetails)="clearSelectedFood()"
           *ngIf="selectedFood"
           [food]="selectedFood">
         </food-details>
@@ -54,6 +55,10 @@ export class TrackerHomeComponent {
   viewSelectedFood(clickedFood: Food) {
     this.selectedFood = clickedFood;
     console.log(this.selectedFood);
+  }
+
+  clearSelectedFood() {
+    this.selectedFood = undefined;
   }
 
   toggleAddFoodField() {
