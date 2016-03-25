@@ -1,12 +1,13 @@
 import { Component } from 'angular2/core';
+import { SignInComponent } from './sign-in.component';
 
 @Component({
   selector: 'my-app',
+  directives: [ SignInComponent],
   template: `
-    <div class="container center">
-      <h1>Skeleton Angular2 App!</h1>
-      <p>This is also part of the template!</p>
-      <p>Jon said 'always drink upstream from the herd'</p>
+    <div class="container">
+      <sign-in></sign-in>
+
     </div>
   `
 })
