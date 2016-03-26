@@ -7,8 +7,8 @@ import { Food } from './food.model';
   template: `
   <div class="panel panel-default edit-field">
     <div class="panel-body">
-      <input [(ngModel)]="food.name">
-      <input [(ngModel)]="food.calories">
+      <input type="text"[(ngModel)]="food.name">
+      <input type="number"[(ngModel)]="food.calories">
       <select [(ngModel)]="food.meal">
         <option value="breakfast">Breakfast</option>
         <option value="lunch">Lunch</option>

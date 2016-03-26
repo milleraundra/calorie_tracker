@@ -56,7 +56,12 @@ import { MealPipe } from './meal.pipe';
       </div>
 
       <div class="col-sm-4">
-        <calorie-count></calorie-count>
+        <calorie-count
+          [user]='user'
+          [calorieCap]='calorieCap'
+          [calorieEaten]='eatenCalories(foods)'
+          [calorieRemain]='remainCalories(foods, calorieCap)'>
+        </calorie-count>
 
         <button class="btn btn-lg btn-danger btn-block"
           (click)="toggleAddFoodField()"
@@ -84,11 +89,13 @@ export class TrackerHomeComponent {
   public selectedFood: Food;
   public showAddFoodField: boolean;
   public healthFilter: string;
+  public consumedCalories: number;
 
   constructor() {
     this.selectedFood = undefined;
     this.showAddFoodField = false;
     this.healthFilter = "no-filter";
+    this.consumedCalories = 0;
   }
 
   viewSelectedFood(clickedFood: Food) {
@@ -105,10 +112,28 @@ export class TrackerHomeComponent {
 
   addNewFood(newFoodArray: any[]) {
     this.foods.push(new Food(newFoodArray[0], newFoodArray[1], newFoodArray[2], this.foods.length));
+    console.log(this.foods);
   }
 
   changeHealthFilter(newHealthFilter) {
     this.healthFilter = newHealthFilter;
+  }
+
+  eatenCalories(foods: Food[]) {
+    // console.log("Length of foods array" + foods.length);
+    var caloriesEaten: number;
+    caloriesEaten = 0;
+    foods.forEach(function(food) {
+      caloriesEaten += food.calories;
+    });
+    return caloriesEaten;
+  }
+
+  remainCalories(foods: Food[], calorieCap: number) {
+    var remainingCalories: number;
+    remainingCalories = 0;
+    remainingCalories = calorieCap - this.eatenCalories(foods);
+    return remainingCalories;
   }
 
 
