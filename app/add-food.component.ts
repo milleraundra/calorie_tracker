@@ -6,15 +6,19 @@ import { Component, EventEmitter } from 'angular2/core';
   template: `
     <div class="form-group">
       <input type="text" placeholder="Food" #food>
-      <input type="number" placeholder="Calories Consumed" #calories>
-      <select #meal>
-        <option value="breakfast">Breakfast</option>
-        <option value="lunch">Lunch</option>
-        <option value="dinner">Dinner</option>
-        <option value="snack">Snack</option>
-      </select>
-      <button (click)="addFood(food, meal, calories)">Add Food</button>
     </div>
+    <div class="form-group">
+      <input type="number" placeholder="Calories Consumed" #calories>
+    </div>
+    <div class="form-group">
+      <select #meal>
+      <option value="breakfast">Breakfast</option>
+      <option value="lunch">Lunch</option>
+      <option value="dinner">Dinner</option>
+      <option value="snack">Snack</option>
+      </select>
+    </div>
+    <button class="btn btn-success"(click)="addFood(food, meal, calories)">Add Food</button>
   `
 })
 
